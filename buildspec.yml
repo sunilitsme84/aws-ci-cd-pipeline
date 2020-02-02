@@ -1,17 +1,16 @@
-#This file controls the AWS Build
 version: 0.2
 phases:
-  PRE_BUILD:
+  pre_build:
     commands:
-      - echo "Enter the pre-build phase"
-  BUILD:
+      - echo "Entered the pre-build phase"
+  build:
     commands:
-      - echo "Enter build phase"
-      - mvn clean prepare package war:exploded
-  POST_BUILD:
+      - echo "Entered build phase"
+      - mvn clean prepare-package war:exploded
+  post_build:
     commands:
-      - echo "Entered the post build phase"
+      - echo "Entered the post-build phase"
       - mv target/deploy ./
-  artifacts:
-    files:
-      - deploy/**/*
+artifacts:
+  files:
+    - deploy/**/*
